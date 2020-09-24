@@ -1,0 +1,131 @@
+.all{
+	margin-top: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	padding: 8% 70px;
+	font-size: 18px;
+	background-color: #f0f0f0;
+	box-shadow: 4px 4px 9px 4px white;
+	transition: .6s linear;
+	font-family: 'Fondamento';
+	
+}
+.all:hover{
+font-size: 23px;
+}
+.register a{
+	text-decoration: none;
+}
+.recl{
+	font-size: 200%;
+	position: absolute;
+	left: 24%;
+	top: 7%;
+	transition: .4s linear;
+	font-family: 'Fondamento';
+	font-style: italic;
+	text-transform: uppercase;
+}
+.submit{
+	font-size: 25px;
+	margin-top: 30px;
+	margin-left: 50px;
+	border-radius: 10px;
+	padding: 2px 4px;
+	font-family: 'Fondamento';
+	transition-property:  width,height;
+	transition-duration: .4s;
+	transition-timing-function: linear;
+	transition: .4s linear;
+}
+.register{
+	font-size: 23px;
+	border-radius: 8px;
+	padding: 2px 4px;
+	margin-top: 10px;
+	margin-left: 100px;
+	font-family: 'Fondamento';
+	transition-property:  width,height;
+	transition-duration: .4s;
+	transition-timing-function: linear;
+	transition: .4s linear;
+}
+.submit:hover{
+	color:white;
+	background-color: purple;
+	width: 100px;
+	height: 45px;
+}
+.register:hover{
+color:white;
+	background-color: purple;
+	width: 100px;
+	height: 45px;
+}	
+}
+.type{
+	font-size: 10px;
+	padding: 2px;
+	margin-top: 8px;
+	font-family: 'Fondamento';
+}
+body{
+	background-color: #e1e1e1;
+	background-image: url('cur9.jpg');
+	background-size: cover;
+}
+.for{
+	font-size: 23px;
+}
+@media screen and (max-width: 1000px)
+{
+	.all{
+		font-size: 16px;
+	}
+	.all:hover{
+		font-size: 21px;
+	}
+	.recl{
+		font-size: 170%;
+	}
+	.for{
+		font-size: 20px;
+	}
+	body{
+		width: 100%;
+		height: 100vh;
+	}
+	.submit{
+		font-size: 21px;
+	}
+	.register{
+		font-size: 19px;
+	}
+}
+@media screen and (max-width: 700px)
+{
+	.all{
+		font-size: 14px;
+	}
+	.all:hover{
+		font-size: 18px;
+	}
+	.recl{
+		font-size: 150%;
+	}
+	.for{
+		font-size: 18px;
+	}
+	body{
+		width: 100%;
+		height: 100vh;
+	}
+	.submit{
+		font-size: 19px;
+	}
+	.register{
+		font-size: 17px;
+	}
+}
