@@ -39,13 +39,12 @@
 		<th>PROJECT NAME</th>
 		<th>PROJECT DESCRIPTION</th>
 		<th>DEADLINE</th>
-		<th>LEAD ID</th>
 		<th>PROJECT STATUS</th>
-		<th>VIEW PROGRESS</th>
+		<th>ASSIGN TASK</th>
 	</tr>
 	<%
 		String USER_NAME=(String)session.getAttribute("username");
-		out.print(USER_NAME);
+		//out.print(USER_NAME);
 		int LEAD_ID=0;
 		try
 		{
@@ -64,7 +63,7 @@
 		{
 			out.print("Exception: "+ex);
 		}
-		out.print(LEAD_ID);
+		//out.print(LEAD_ID);
 	%>
 	<%
 		try
@@ -83,8 +82,8 @@
 				out.print("<td>"+rs.getString(2)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
-				out.print("<td>"+rs.getString(5)+"</td>");
-				out.print("<td>"+rs.getString(7)+"</td>");
+				//out.print("<td>"+rs.getString(5)+"</td>");
+				out.print("<td><h2>"+rs.getString(7)+"<h2></td>");
 				out.print("<td><input type='submit' value='ASSIGN TASK'></td>");
 				out.print("</tr>");
 				out.print("</form>");

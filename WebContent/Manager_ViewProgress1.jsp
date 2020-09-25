@@ -43,7 +43,7 @@
 		<th>TASK ID</th>
 		<th>TASK DESCRIPTION</th>
 		<th>DEADLINE</th>
-		<th>RESOURCES_ID</th>
+		<th>RESOURCE DETAILS</th>
 		<th>TASK_STATUS</th>
 	</tr>
 	<%
@@ -57,12 +57,28 @@
 			ResultSet rs=psmt.executeQuery();
 			while(rs.next())
 			{
+				int RESOURCES_ID=rs.getInt(5);
+				String RESOURCE_NAME="";
+				String RESOURCE_EMAIL="";
+				String RESOURCE_CONTACTNO="";
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+				String query1="SELECT* FROM RESOURCESDETAILS WHERE RESOURCE_ID=?";
+				PreparedStatement psmt1=con.prepareStatement(query1);
+				psmt1.setInt(1,RESOURCES_ID);
+				ResultSet rs1=psmt1.executeQuery();
+				while(rs1.next())
+				{
+					RESOURCE_NAME=rs1.getString(4);
+					RESOURCE_EMAIL=rs1.getString(5);
+					RESOURCE_CONTACTNO=rs1.getString(6);
+				}
 				//out.print("<form action=''");
 				out.print("<tr>");
 				out.print("<td>"+rs.getInt(1)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
-				out.print("<td>"+rs.getString(5)+"</td>");
+				out.print("<td><h3>"+RESOURCE_NAME+"<br>"+RESOURCE_EMAIL+"<br>"+RESOURCE_CONTACTNO+"</h3></td>");
 				out.print("<td>"+rs.getString(6)+"</td>");
 				//out.print("<td>"+rs.getString(6)+"</td>");
 				//out.print("<td><input type='button' value='VIEW PROGRESS'></td>");

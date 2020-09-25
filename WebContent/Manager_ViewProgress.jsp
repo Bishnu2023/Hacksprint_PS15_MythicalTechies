@@ -39,7 +39,7 @@
 		<th>PROJECT NAME</th>
 		<th>PROJECT DESCRIPTION</th>
 		<th>DEADLINE</th>
-		<th>LEAD ID</th>
+		<th>LEAD DETAILS</th>
 		<th>PROJECT STATUS</th>
 		<th>VIEW PROGRESS</th>
 	</tr>
@@ -82,9 +82,9 @@
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
 				String query1="SELECT* FROM LEADDETAILS WHERE LEAD_ID=?";
-				PreparedStatement psmt1=con.prepareStatement(query);
-				psmt1.setInt(1,MANAGER_ID);
-				ResultSet rs1=psmt.executeQuery();
+				PreparedStatement psmt1=con.prepareStatement(query1);
+				psmt1.setInt(1,LEAD_ID);
+				ResultSet rs1=psmt1.executeQuery();
 				while(rs1.next())
 				{
 					LEAD_NAME=rs1.getString(4);
@@ -97,7 +97,7 @@
 				out.print("<td>"+rs.getString(2)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
-				out.print("<td>"+LEAD_NAME+"</td>");
+				out.print("<td><h3>"+LEAD_NAME+"<br>"+LEAD_EMAIL+"<br>"+LEAD_CONTACTNO+"</h3></td>");
 				out.print("<td>"+rs.getString(7)+"</td>");
 				out.print("<td><input type='submit' value='VIEW PROGRESS'></td>");
 				out.print("</tr>");
