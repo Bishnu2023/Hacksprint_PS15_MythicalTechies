@@ -75,13 +75,29 @@
 			ResultSet rs=psmt.executeQuery();
 			while(rs.next())
 			{
+				int LEAD_ID=rs.getInt(5);
+				String LEAD_NAME="";
+				String LEAD_EMAIL="";
+				String LEAD_CONTACTNO="";
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+				String query1="SELECT* FROM LEADDETAILS WHERE LEAD_ID=?";
+				PreparedStatement psmt1=con.prepareStatement(query);
+				psmt1.setInt(1,MANAGER_ID);
+				ResultSet rs1=psmt.executeQuery();
+				while(rs1.next())
+				{
+					LEAD_NAME=rs1.getString(4);
+					LEAD_EMAIL=rs1.getString(5);
+					LEAD_CONTACTNO=rs1.getString(6);
+				}
 				out.print("<form action='Manager_ViewProgress1.jsp'");
 				out.print("<tr>");
 				out.print("<td><input type='text' name='projectid' value='"+rs.getInt(1)+"' readonly></td>");
 				out.print("<td>"+rs.getString(2)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
-				out.print("<td>"+rs.getString(5)+"</td>");
+				out.print("<td>"+LEAD_NAME+"</td>");
 				out.print("<td>"+rs.getString(7)+"</td>");
 				out.print("<td><input type='submit' value='VIEW PROGRESS'></td>");
 				out.print("</tr>");

@@ -40,6 +40,7 @@
 		<th>TASK DESCRIPTION</th>
 		<th>DEADLINE</th>
 		<th>TASK STATUS</th>
+		<th>UPDATE STATUS</th>
 	</tr>
 	<%int RESOURCE_ID=0; %>
 	<%
@@ -71,16 +72,24 @@
 			ResultSet rs=psmt.executeQuery();
 			while(rs.next())
 			{
-				out.print("<form action='Manager_ViewProgress1.jsp'");
+				out.print("<form action='Resource_UpdateStatus.jsp'");
 				out.print("<tr>");
 				//out.print("<td><input type='text' name='projectid' value='"+rs.getInt(1)+"' readonly></td>");
-				out.print("<td>"+rs.getString(1)+"</td>");
-				out.print("<td>"+rs.getString(2)+"</td>");
+				
+				out.print("<td><input type='text' name='projectid' readonly value='"+rs.getString(2)+"' </td>");
+				out.print("<td><input type='text' name='taskid' readonly value='"+rs.getString(1)+"' </td> ");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
 				//out.print("<td>"+rs.getString(5)+"</td>");
 				out.print("<td><h2>"+rs.getString(6)+"</h2></td>");
-				//out.print("<td><input type='submit' value='VIEW PROGRESS'></td>");
+				//out.print("<td><input type='submit' value='IN PROGRESS'>&nbsp<input type='submit' value='COMPLETED'></td>");
+				%>
+					<!-- <td><select name="taskstatus">
+    				<option value="IN PROGRESS">IN PROGRESS</option>
+    				<option value="COMPLETED">COMPLETED</option>
+  					</select></td>-->
+				<%
+				out.print("<td><input type='submit' value='UPDATE STATUS'></td>");
 				out.print("</tr>");
 				out.print("</form>");
 			}

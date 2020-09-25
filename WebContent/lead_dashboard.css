@@ -9,7 +9,7 @@
     /* border: 1px solid red; */
     color: #535c68;
     box-shadow: 3px 0px 10px 2px grey;
-    text-align: center;
+    /* text-align: center; */
     padding: 6px;
     font-size: 18px;
 }
@@ -17,7 +17,7 @@
 /* ------------------------------------------------content--------------------------------------- */
 
 .content{
-    height: 210vh;
+    height: 130vh;
     width: 100%;
     background-color: #c7ecee;
 }
@@ -30,10 +30,11 @@
 }
 
 .container1{
-    
+   
     width: 100px;
     height:200px;
-        background-size: cover;
+    
+    background-size: cover;
     transition: transform 2s;
 }
 .container1:hover{

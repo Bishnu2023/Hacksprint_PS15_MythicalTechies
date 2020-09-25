@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%
-		String u=request.getParameter("username");
-		String p=request.getParameter("password");
+		String u=(String)session.getAttribute("username");//request.getParameter("username");
+		String p=(String)session.getAttribute("password");//request.getParameter("password");
 		out.println("USERNAME: "+u);
 	    out.println("PASSWORD: "+p	);
 	    

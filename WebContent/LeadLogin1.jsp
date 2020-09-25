@@ -9,10 +9,11 @@
 </head>
 <body>
 	<%
-		String u=request.getParameter("username");
-		String p=request.getParameter("password");
+		String u=(String)session.getAttribute("username");
+		String p=(String)session.getAttribute("password");
 		out.println("USERNAME: "+u);
 	    out.println("PASSWORD: "+p	);
+	    session.setAttribute("username",u);
 	    try
 	    {
 	    	Class.forName("com.mysql.jdbc.Driver");

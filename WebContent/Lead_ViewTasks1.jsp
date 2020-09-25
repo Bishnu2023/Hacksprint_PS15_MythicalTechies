@@ -32,62 +32,42 @@
 </style>
 </head>
 <body>
-	<h1 align="center">VIEW PROJECTS</h1>
+
+``<%
+		int PROJECT_ID=Integer.parseInt(request.getParameter("projectid"));
+		//out.print(PROJECT_ID);
+	%>
+	<h1 align="center">VIEW TASKS</h1>
 	<table id="customers">
 	<tr>
-		<th>PROJECT ID</th>
-		<th>PROJECT NAME</th>
-		<th>PROJECT DESCRIPTION</th>
+		<th>TASK ID</th>
+		<th>TASK DESCRIPTION</th>
 		<th>DEADLINE</th>
-		<th>LEAD ID</th>
-		<th>PROJECT STATUS</th>
-		<th>VIEW PROGRESS</th>
+		<th>RESOURCES_ID</th>
+		<th>TASK_STATUS</th>
 	</tr>
 	<%
-		String USER_NAME=(String)session.getAttribute("username");
-		out.print(USER_NAME);
-		int LEAD_ID=0;
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
-			//String query="SELECT* MANAGERDETAILS WHERE USER_NAME=?";
-			PreparedStatement psmt=con.prepareStatement("SELECT* FROM LEADDETAILS WHERE USER_NAME=?");
-			psmt.setString(1,USER_NAME);
-			ResultSet rs=psmt.executeQuery();
-			if(rs.next())
-			{
-				LEAD_ID=rs.getInt(1);
-			}
-		}
-		catch(Exception ex)
-		{
-			out.print("Exception: "+ex);
-		}
-		out.print(LEAD_ID);
-	%>
-	<%
-		try
-		{
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
-			String query="SELECT* FROM PROJECT_DETAILS WHERE LEAD_ID=?";
-			PreparedStatement psmt=con.prepareStatement(query);
-			psmt.setInt(1,LEAD_ID);
+			//Statement st=con.createStatement();
+			PreparedStatement psmt=con.prepareStatement("SELECT* FROM TASK_DETAILS WHERE PROJECT_ID=?");
+			psmt.setInt(1,PROJECT_ID);
 			ResultSet rs=psmt.executeQuery();
 			while(rs.next())
 			{
-				out.print("<form action='Lead_AssignTasks1.jsp'");
+				//out.print("<form action=''");
 				out.print("<tr>");
-				out.print("<td><input type='text' name='projectid' value='"+rs.getInt(1)+"' readonly></td>");
-				out.print("<td>"+rs.getString(2)+"</td>");
+				out.print("<td>"+rs.getInt(1)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
 				out.print("<td>"+rs.getString(5)+"</td>");
-				out.print("<td>"+rs.getString(7)+"</td>");
-				out.print("<td><input type='submit' value='ASSIGN TASK'></td>");
+				out.print("<td>"+rs.getString(6)+"</td>");
+				//out.print("<td>"+rs.getString(6)+"</td>");
+				//out.print("<td><input type='button' value='VIEW PROGRESS'></td>");
 				out.print("</tr>");
-				out.print("</form>");
+				//out.print("</form>");
 			}
 		}
 		catch(Exception ex)
