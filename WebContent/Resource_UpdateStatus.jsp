@@ -83,8 +83,9 @@
                         
                         <label for="taskstatus" style="font-size: 19px;font-weight: 500;margin-top: 20px;">Task Status: </label>
                         <select name="taskstatus">
-                        	<option>IN PROGRESS</option>
-                        	<option>COMPLETED</option>
+                        	<option value="IN PROGRESS">IN PROGRESS</option>
+                        	<option value="COMPLETED">COMPLETED</option>
+                        	<option value="BACKLOG">BACKLOG</option>
                         </select>
                         </select><br>
                         <input type="submit" class="btn btn-primary button" >

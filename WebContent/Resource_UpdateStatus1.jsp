@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	hiii
+	
 	<%
 		int PROJECT_ID=Integer.parseInt(request.getParameter("projectid"));
 		int TASK_ID=Integer.parseInt(request.getParameter("taskid"));
@@ -19,11 +19,14 @@
 		{
 			TASK_STATUS="COMPLETED";
 		}
-		else
+		else if(status.equals("IN PROGRESS")) 
 		{
 			TASK_STATUS="IN PROGRESS";
 		}
-		
+		else if(status.equals("BACKLOG"))
+		{
+			TASK_STATUS="BACKLOG";
+		}
 		out.println(PROJECT_ID);
 		out.println(TASK_ID);
 		out.println(TASK_STATUS);

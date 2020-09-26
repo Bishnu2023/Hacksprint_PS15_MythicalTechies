@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
@@ -60,7 +61,7 @@
 						break;
 					}
 				}
-				out.println(flag);
+				//out.println(flag);
 				if(flag==1)
 				{
 					try
@@ -84,6 +85,7 @@
 	    		out.println("Exception: "+ex);
 		}
 	%>
+	
 	<h1 align="center">VIEW PROJECTS</h1>
 	<table id="customers">
 	<tr>
