@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+		
 		<%
 			int PROJECT_ID=Integer.parseInt(request.getParameter("projectid"));
 			String PROJECT_NAME=request.getParameter("projectname");
@@ -32,7 +33,7 @@
 				psmt.setString(3,DEADLINE);
 				psmt.setInt(4,LEAD_ID);
 				psmt.executeUpdate();
-				out.print("SUCCESSFUL!!!");
+				response.sendRedirect("Manager_Modify.jsp");
 			}
 			catch(Exception ex)
 			{

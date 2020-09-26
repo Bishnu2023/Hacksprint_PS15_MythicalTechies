@@ -32,6 +32,58 @@
 </style>
 </head>
 <body>
+	<%
+		//PROJECT STATUS TO BE UPDATED AS COMPLETED IF ALL THE TASKS OF THE PROJECT IS COMPLETE
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery("SELECT* FROM PROJECT_DETAILS");
+			while(rs.next())
+			{
+				
+				int flag=1;
+				//out.println(flag);
+				int PROJECT_ID=rs.getInt(1);
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+				PreparedStatement psmt1=con1.prepareStatement("SELECT* FROM TASK_DETAILS WHERE PROJECT_ID=?");
+				psmt1.setInt(1,PROJECT_ID);
+				ResultSet rs1=psmt1.executeQuery();
+				while(rs1.next())
+				{
+					String status=rs1.getString(6);
+					if(!status.equals("COMPLETED"))
+					{
+						flag=0;
+						break;
+					}
+				}
+				out.println(flag);
+				if(flag==1)
+				{
+					try
+					{
+						Class.forName("com.mysql.jdbc.Driver");
+						Connection con2=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+						PreparedStatement psmt2=con2.prepareStatement("UPDATE PROJECT_DETAILS SET PROJECT_STATUS=? WHERE PROJECT_ID=?");
+						psmt2.setString(1,"COMPLETED");
+						psmt2.setInt(2,PROJECT_ID);
+						psmt2.executeUpdate();
+					}
+					catch(Exception ex)
+					{
+						out.println("Exception: "+ex);
+					}
+				}
+			}
+		}
+	    catch(Exception ex)
+		{
+	    		out.println("Exception: "+ex);
+		}
+	%>
 	<h1 align="center">VIEW PROJECTS</h1>
 	<table id="customers">
 	<tr>
@@ -39,12 +91,13 @@
 		<th>PROJECT NAME</th>
 		<th>PROJECT DESCRIPTION</th>
 		<th>DEADLINE</th>
-		<th>LEAD ID</th>
+		<th>LEAD DETAILS</th>
 		<th>PROJECT STATUS</th>
 		<th>VIEW PROGRESS</th>
 	</tr>
 	<%
 		String USER_NAME=(String)session.getAttribute("username");
+		//out.println(USER_NAME);
 		int MANAGER_ID=0;
 		try
 		{
@@ -82,9 +135,9 @@
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
 				String query1="SELECT* FROM LEADDETAILS WHERE LEAD_ID=?";
-				PreparedStatement psmt1=con.prepareStatement(query);
-				psmt1.setInt(1,MANAGER_ID);
-				ResultSet rs1=psmt.executeQuery();
+				PreparedStatement psmt1=con.prepareStatement(query1);
+				psmt1.setInt(1,LEAD_ID);
+				ResultSet rs1=psmt1.executeQuery();
 				while(rs1.next())
 				{
 					LEAD_NAME=rs1.getString(4);
@@ -97,7 +150,7 @@
 				out.print("<td>"+rs.getString(2)+"</td>");
 				out.print("<td>"+rs.getString(3)+"</td>");
 				out.print("<td>"+rs.getString(4)+"</td>");
-				out.print("<td>"+LEAD_NAME+"</td>");
+				out.print("<td><h3>"+LEAD_NAME+"<br>"+LEAD_EMAIL+"<br>"+LEAD_CONTACTNO+"</h3></td>");
 				out.print("<td>"+rs.getString(7)+"</td>");
 				out.print("<td><input type='submit' value='VIEW PROGRESS'></td>");
 				out.print("</tr>");
@@ -108,7 +161,68 @@
 		{
 			out.println("Exception"+ex);	
 		}
+	
 	%>
+	<%
+	int COMPLETE_COUNT=0;
+	int INCOMPLETE_COUNT=0;
+	try
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hacksprint","root","1234");
+		String query="SELECT* FROM PROJECT_DETAILS";
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery(query);
+		//psmt.setInt(1,PROJECT_ID);
+		//psmt.executeUpdate();
+		
+			while(rs.next())
+			{
+				String status=rs.getString(7);
+				if(status.equals("NOT COMPLETED"))
+				{
+					INCOMPLETE_COUNT++;	
+				}
+				else if(status.equals("COMPLETED"))
+				{
+					COMPLETE_COUNT++;
+				}
+			}
+			//out.println(COMPLETE_COUNT);
+			//out.println(INCOMPLETE_COUNT);
+	}
+	catch(Exception ex)
+	{
+		out.println("Exception: "+ex);
+	}
+	
+	%>
+	<div id="piechart" style="width: 900px; height: 500px; margin: 0 auto"></div>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Completed',     <%=COMPLETE_COUNT%>],
+          ['Not Completed',  <%=INCOMPLETE_COUNT%>]
+        ]);
+		
+        
+        var options = {
+          title: 'Project Status'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    
+    
 	</table>
 </body>
 </html>

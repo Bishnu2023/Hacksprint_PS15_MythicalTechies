@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-	<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-         <!-- Latest compiled and minified CSS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -22,22 +26,16 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="resource_dashboard.css">
+    <link rel="stylesheet" href="manager.css">
 </head>
+
 <body>
-<!-- <h1>RESOURCE DASHBOARD</h1> -->
-<!--  <a href="Resource_ViewTasks.jsp">VIEW TASKS</a> -->
-<%
-	String USER_NAME=(String)session.getAttribute("username");
-	//out.print(USER_NAME);
-	session.setAttribute("username",USER_NAME);
-%>
-<!-- ------------------------------------Navigation-------------------------------------- -->
+    <!-- ------------------------------------Navigation-------------------------------------- -->
 
 
     <section>
         <nav class="navbar navbar-expand-lg bg-light navbar-light p-2">
-            <a class="navbar-brand" href="#">ProjectZone</a>
+            <a class="navbar-brand" href="#"style="font-weight:800;font-size:20px">ProjectZone</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navid">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,10 +48,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../index/index.html #contact">CONTACT US</a>
                     </li>
-                  
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#login">LOG IN</a>
-                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">LOG OUT</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -65,36 +63,115 @@
 
     <section class="heading" id="head" onmouseover="header()">
         <div class="container">
-            <h2 style="font-weight: 800;">Resource Dashboard</h2>
+            <h2 style="font-weight: 800;">Manager Dashboard</h2>
         </div>
     </section>
 
- <!-----------------------------------------------content--------------------------------------------------------->
 
- <section class="content">
-    <div class="container">
-      
-        <div class="row" style="padding-top: 20px;">
-            <div class="col-5 container1"  style="margin-left: 120px;background-image: url('view.jpg');">
-                
+    <!-----------------------------------------------content--------------------------------------------------------->
+<div class="img">
+    <img src="back.jpg">
+</div>
+    <section class="content">
+        <div class="container">
+
+            <div class="row" style="padding-top: 20px;">
+                <div class="col-md-6 col-12">
+
+                    <div class="col-12 container1" style="  background-image: url('add.jpg');">
+
+                    </div>
+                    <div class="col-md-9 col-12 con1" ">
+                   You can add project which you want to assign<br> to lead. You easily add any project just 
+                   by entering appropriate details.
+                        <br>
+                 <a href="Manager_AddProject.html"> <input type="submit" class="btn btn-white button"
+                            value="Add Projects"></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12" >
+
+
+                    <div class="col-12 container1" style=" background-image: url('view.jpg');">
+
+                    </div>
+                    <div class="col-md-9 col-9  con1">
+                       You can here view all the assigned projects <br>
+                       You can also check the details of this<br>
+                        particular project. 
+                        <br>
+                    <a href="Manager_ViewProgress.jsp"><input type="submit" class="btn btn-white button" value="View Progress"></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 col-9 con1"  ">
-                Lorem ipsum dolor sitpora ipsum quos nam voluptatem minima error mollitia in laudantium
-                repudiantatibus, asperiores quia?adfhjdskhfakjshdfjwqdhahsadj<br>
-                <form action="Resource_ViewTasks.jsp">
-                <input type="submit" class="btn btn-danger button" value="View Task">
-                </form>
+
+<!-- ================================================================== -->
+
+
+            <div class="row" style="padding-top: 20px;">
+                <div class="col-md-6 col-12">
+
+                    <div class="col-12 container1" style="  background-image: url('delete.jpg');">
+
+                    </div>
+                    <div class="col-md-9 col-12 con1" ">
+                    If you want to delete any added project then you can
+                    choose this. This will delete every details 
+                    of that particular project.
+                  
+                        <br>
+                 <a href="Manager_Delete.jsp"> <input type="submit" class="btn btn-white button"
+                            value="Delete"></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12" >
+
+
+                    <div class="col-12 container1" style=" background-image: url('modify.jpg');">
+
+                    </div>
+                    <div class="col-md-9 col-9  con1">
+                        In this you can modify the added projects as per your
+                        requirements. If you can are not sure about <br>
+                        any details you can modify here.
+
+                        <br>
+                       <a href="Manager_Modify.jsp"> <input type="submit" class="btn btn-white button" value="Modify"></a>
+                    </div>
+                </div>
+            </div>
+
+<!-- ====================================================================== -->
+
+            <!-- <div class="row" style="padding-top: 20px;">
+                <div class="col-md-6 col-12">
+
+                    <div class="col-12 container1" style="  background-image: url('delete.jpg');">
+
+                    </div>
+                    <div class="col-md-9 col-12 con1" ">
+                    If you want to delete any added project then you can
+                    choose this. This will delete every details 
+                    of that particular project.
+                
+                        <br>
+                 <a href="Manager_Delete.jsp"> <input type="submit" class="btn btn-white button"
+                            value="Delete"></a>
+                    </div>-->
+                </div>
             </div>
         </div>
-       
-     
-       
-    </div>
-</section>
+    </section>
 
 
-        
-        
-        <script src="" async defer></script>
+    <script type="text/JavaScript">
+    function header(){
+        document.getElementById("head").style.backgroundColor="#f1f2f6";
+        document.getElementById("head").style.color="#111";
+    }
+            </script>
 </body>
+
 </html>

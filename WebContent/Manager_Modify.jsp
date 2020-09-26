@@ -33,6 +33,7 @@
 </head>
 <body>
 	<h1 align="center">VIEW PROJECTS</h1>
+	<a href="ManagerDashBoard.jsp"><input type="button" value="GO TO DASHBOARD"></a><br>
 	<table id="customers">
 	<tr>
 		<th>PROJECT ID</th>

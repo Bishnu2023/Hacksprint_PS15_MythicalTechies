@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -32,10 +30,7 @@
 <body>
     <!-- ------------------------------------Navigation-------------------------------------- -->
 
-	<%
-	String USER_NAME=(String)session.getAttribute("username");
-	session.setAttribute("username",USER_NAME);
-%>
+
     <section>
         <nav class="navbar navbar-expand-lg bg-light navbar-light p-2">
             <a class="navbar-brand" href="#"style="font-weight:800;font-size:20px">ProjectZone</a>
@@ -66,7 +61,7 @@
 
     <section class="heading" id="head" onmouseover="header()">
         <div class="container">
-            <h2 style="font-weight: 800;">Manager Dashboard</h2>
+            <h2 style="font-weight: 800;">Resource Dashboard</h2>
         </div>
     </section>
 
@@ -81,70 +76,25 @@
             <div class="row" style="padding-top: 20px;">
                 <div class="col-md-6 col-12">
 
-                    <div class="col-12 container1" style="  background-image: url('add.jpg');">
+                    <div class="col-12 container1" style="  background-image: url('view.jpg');">
 
                     </div>
                     <div class="col-md-9 col-12 con1" ">
-                   You can add project which you want to assign<br> to lead. You easily add any project just 
-                   by entering appropriate details.
+                   Here You can check which task is assigned to you.And you can work according to that.<br>
+                    You can also update the progress rate of project here.    
                         <br>
-                 <a href="Manager_AddProject.html"> <input type="submit" class="btn btn-white button"
-                            value="Add Projects"></a>
+                 <a href="Resource_ViewTasks.jsp"> <input type="submit" class="btn btn-white button"
+                            value="View Tasks"></a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-12" >
-
-
-                    <div class="col-12 container1" style=" background-image: url('view.jpg');">
-
-                    </div>
-                    <div class="col-md-9 col-9  con1">
-                       You can here view all the assigned projects <br>
-                       You can also check the details of this<br>
-                        particular project. 
-                        <br>
-                    <a href="Manager_ViewProgress.jsp"><input type="submit" class="btn btn-white button" value="View Progress"></a>
-                    </div>
-                </div>
+                
             </div>
 
 <!-- ================================================================== -->
 
 
-            <div class="row" style="padding-top: 20px;">
-                <div class="col-md-6 col-12">
-
-                    <div class="col-12 container1" style="  background-image: url('delete.jpg');">
-
-                    </div>
-                    <div class="col-md-9 col-12 con1" ">
-                    If you want to delete any added project then you can
-                    choose this. This will delete every details 
-                    of that particular project.
-                  
-                        <br>
-                 <a href="Manager_Delete.jsp"> <input type="submit" class="btn btn-white button"
-                            value="Delete"></a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-12" >
-
-
-                    <div class="col-12 container1" style=" background-image: url('modify.jpg');">
-
-                    </div>
-                    <div class="col-md-9 col-9  con1">
-                        In this you can modify the added projects as per your
-                        requirements. If you can are not sure about <br>
-                        any details you can modify here.
-
-                        <br>
-                       <a href="Manager_Modify.jsp"> <input type="submit" class="btn btn-white button" value="Modify"></a>
-                    </div>
-                </div>
-            </div>
+            
 
 <!-- ====================================================================== -->
 

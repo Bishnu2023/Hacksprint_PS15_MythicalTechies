@@ -15,56 +15,81 @@
 }
 
 /* ------------------------------------------------content--------------------------------------- */
-
-.content{
-    height: 210vh;
+.img img{
+    position: absolute;
+    /* z-index: -20; */
+    opacity: 0.3;
+    height: 230vh;
     width: 100%;
-    background-color: #c7ecee;
+}
+.content{
+    height: 200vh;
+    width: 100%;
+    background-color: #fff;
 }
 .con1{
     margin-left: 50px;
+    margin-top: 20px;
+    font-size: 17px;
+    word-spacing: 2px;
 }
 .button{
-    margin-top: 20px;
-    padding: 7px 25px;
+    box-shadow:4px 5px 9px 2px  #c7ecee,4px 5px 9px 2px  #c7ecee,4px 5px 9px 2px  #c7ecee,4px 5px 9px 2px #c7ecee;
+    padding: 9px 25px;
+    font-size: 18px;
+    font-weight: 800;
+    /* margin-left: 150px; */
+    margin-bottom: 30px;
+    margin-top: 60px;
 }
 
 .container1{
     
-    width: 100px;
+    width: 80%;
     height:200px;
         background-size: cover;
-    transition: transform 2s;
+    box-shadow:20px 20px 90px 5px #fff,20px 20px 90px 5px #fff,20px 20px 90px 5px #fff,20px 20px 90px 5px #fff;
+
+    /* transition: transform 2s; */
 }
 .container1:hover{
-    transform:scale(1.1);
+    /* transform:scale(1.1); */
 }
 .button:hover{
-box-shadow:2px 3px 9px 2px grey,2px 3px 9px 2px grey,2px 3px 9px 2px grey,2px 3px 9px 2px grey;
-}
-@media only screen and (max-width:990px){
-    .content{
-height: 120vh;
-
-    }
+    box-shadow:-20px -30px 90px -20px #c7ecee,-20px -30px 90px -20px #c7ecee,-2px -3px 9px -2px #c7ecee,-2px -3px 9px -2px #c7ecee;
+    transition: 0.4s linear;
 }
 
- @media only screen and (max-width:778px){
-    .content{
-        height: 190vh;
-        padding-top: 40px;
+@media only screen and (max-width:1365px){
+.img img{
+    height:280vh ;
+}
+}
+
+@media only screen and (max-width:993px){
+    .img img{
+        height:300vh ;
     }
-    .container1{
-        margin-left: 100px;
     }
-    .con1{
-        margin-top: 20px;
-        margin-left: 90px;
-        margin-bottom: 30px;
     
-    }
-    .button{
-        margin-top: 20px;
-    }
-
-} 
+    @media only screen and (max-width:768px){
+        .content{
+            height: 400vh;
+        }
+        .img img{
+            height:430vh ;
+        }
+        }
+        
+        
+        @media only screen and (max-width:627px){
+           .container1{
+               margin-left: -5px;
+           }
+           .con1{
+               margin-left: -15px;
+           }
+            }
+            
+            
+        

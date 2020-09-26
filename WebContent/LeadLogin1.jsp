@@ -25,7 +25,7 @@
 	    	ResultSet rs=psmt.executeQuery();
 	    	if(rs.next())
 	    	{
-	    		response.sendRedirect("LeadDashBoard.jsp");
+	    		response.sendRedirect("lead_dashboard.html");
 	    	}
 	    	else
 	    	{

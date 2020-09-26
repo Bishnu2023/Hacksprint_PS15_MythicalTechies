@@ -19,9 +19,7 @@
 			PreparedStatement psmt=con.prepareStatement(query);
 			psmt.setString(1,PROJECT_ID);
 			psmt.executeUpdate();
-			%><script>
-				alert("PROJECT DELETED SUCCESSFULLY");
-			</script><%
+			%><%
 			request.getRequestDispatcher("Manager_Delete.jsp").include(request,response);
 		}
 		catch(Exception ex)

@@ -48,11 +48,9 @@
 		Statement st=con.createStatement();
 		st.executeUpdate("insert into PROJECT_DETAILS(PROJECT_NAME,PROJECT_DESCRIPTION,DEADLINE,LEAD_ID,MANAGER_ID) VALUES('"+PROJECT_NAME+"','"+PROJECT_DESCRIPTION+"','"+DEADLINE+"','"+LEAD_ID+"','"+MANAGER_ID+"')");
 		request.getRequestDispatcher("ManagerDashBoard.jsp").include(request,response);
-		%>
-		<script>
-			alert("PROJECT ADDED SUCCESSFULLY!!!");
-		</script>
-		<%
+		
+		
+		
 	}
 	catch(Exception ex)
 	{
